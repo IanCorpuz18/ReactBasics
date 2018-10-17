@@ -8,12 +8,12 @@ const placeDetail = props => {
 
             <View>
             <Image source={props.selectedPlace.image} style={styles.placeImage}/>
-            <Text style={styles.placeName}>{props.selectedPlace.name} </Text>
+            <Text style={styles.placeName}>{props.selectedPlace.name} {props.selectedPlace.date}</Text>
             </View>
              );
             }
     return (
-        <Modal visible={props.selectedPlace !== null} animationType="slide">
+        <Modal  visible={props.selectedPlace !== null} animationType="slide">
         <View style={styles.modalContainer}>
             {modalContent}
         <View>

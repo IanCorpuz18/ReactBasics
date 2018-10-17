@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 
 import PlaceInput from "./src/components/PlaceInput/PlaceInput";
 import PlaceList from "./src/components/PlaceList/PlaceList";
@@ -11,12 +11,13 @@ export default class App extends Component {
    selectedPlace: null
  };
 
- placeAddedHandler = placeName => {
+ placeAddedHandler = (placeName, placeDate) => {
    this.setState(prevState => {
      return {
        places: prevState.places.concat({
          key : Math.random(), 
          name : placeName,
+         date: placeDate,
 
         image: placeImage
         })
@@ -55,9 +56,13 @@ this.setState({
  };
 
  render() {
-  //  console.log("iancorpuz", this.state)
+  let wow = {
+    uri: 'https://cdn.vox-cdn.com/thumbor/8tLchaDMIEDNzUD3mYQ7v1ZQL84=/0x0:2012x1341/920x613/filters:focal(0x0:2012x1341):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg'
+  };
    return (
+     
      <View style={styles.container}>
+       <Image source={wow} style={{width: 193, height: 110}}/>
      <PlaceDetail selectedPlace={this.state.selectedPlace}
       onItemDeleted ={this.placeDeletedHandler}
       onModalClosed={this.modalClosedHandler}/>

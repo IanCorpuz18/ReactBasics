@@ -5,7 +5,7 @@ const listItem = props => (
  <TouchableOpacity onPress={props.onItemPressed}>
    <View style={styles.listItem}>
    <Image source={props.placeImage} style={styles.placeImage}/>
-     <Text>{props.placeName}</Text>
+   <Text>Place:</Text><Text style={styles.TextDesign}>{props.placeName}</Text><Text>   Date:</Text><Text style={styles.TextDesign}> {props.placeDate}</Text>
    </View>
  </TouchableOpacity>
 );
@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
 marginRight:8,
 height:30,
 width:30
+ },
+ TextDesign:{
+   fontWeight:"bold",
+   fontSize:20
  }
 });
 
